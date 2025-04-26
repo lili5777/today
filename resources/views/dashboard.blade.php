@@ -88,10 +88,10 @@
                             <img src="{{asset('img/simulasi.png')}}" alt="Foto User" class="user-photo me-3">
                             <div>
                                 <strong class="fs-5">{{$user->where('id', $a->id_user)->first()->name}}</strong><br>
-                                <span class="small-text">Pukul 14:15 - 25 April 2025</span>
+                                <span class="small-text">Pukul {{$a->jam}} {{$a->tanggal}}</span>
                             </div>
                         </div>
-                        <p class="mb-0 fs-6">Belajar dasar-dasar Laravel migration dan database connection error.</p>
+                        <p class="mb-0 fs-6">{{$a->topik}}</p>
                     </div>
                 @endforeach
                 
@@ -110,6 +110,10 @@
                     <h5>Win Streak:</h5>
                     <p>🔥 3 Hari berturut-turut!</p>
                 </div>
+                <form action="" method="POST" class="mt-4">
+                    @csrf
+                    <button type="submit" class="btn btn-post w-100">Logout 🚪</button>
+                </form>
             </div>
 
         </div>
