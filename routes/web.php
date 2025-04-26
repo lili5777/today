@@ -26,5 +26,6 @@ Route::post('/logout', [AdminController::class,'logout'])->name('logout');
 
 
 Route::get('/register', [AdminController::class, 'register'])->name('register');
-Route::get('/profil', [AdminController::class, 'profil'])->name('register');
+Route::post('/registersubmit', [adminController::class, 'registersubmit'])->name('registersubmit');
+Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
 Route::get('/beranda', [AdminController::class, 'beranda'])->name('beranda')->middleware('auth');

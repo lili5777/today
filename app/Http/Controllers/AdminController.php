@@ -44,9 +44,18 @@ class AdminController extends Controller
         return Redirect()->route('login');
       }
 
-    public function register()
-    {
+      public function register() {
         return view('register');
+    }
+    public function registersubmit(Request $request) {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+         
+        return redirect()->route('login');
+        
     }
 
     public function beranda()

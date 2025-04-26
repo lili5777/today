@@ -61,7 +61,7 @@
                                         </div>
                                         <div>
                                             <p style="text-align: center; margin-top: 10px;">dont have account? <a
-                                                    href="">register</a></p>
+                                                    href="{{ route('register') }}">register</a></p>
                                         </div>
                                     </form>
                                 </div>
