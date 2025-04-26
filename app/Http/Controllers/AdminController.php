@@ -49,12 +49,49 @@ class AdminController extends Controller
         return view('register');
     }
 
+
     public function beranda()
     {
         $tweet = Belajar::orderBy('created_at', 'desc')->get();
-        $user=User::all();
-        return view('dashboard',compact('tweet','user'));
+        $user = User::all();
+
+        $today = Carbon::now('Asia/Makassar')->toDateString();
+        $yesterday = Carbon::now('Asia/Makassar')->subDay()->toDateString();
+        $idUser = auth()->id(); // ambil id user yang login
+
+        // ambil postingan hari ini untuk user yang login
+        $todayPost = Belajar::where('id_user', $idUser)
+            ->where('tanggal', $today)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        // ambil postingan kemarin untuk user yang login
+        $yesterdayPost = Belajar::where('id_user', $idUser)
+            ->where('tanggal', $yesterday)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        // === Hitung Win Streak berdasarkan user login ===
+        $streak = 0;
+        $date = Carbon::now('Asia/Makassar');
+
+        while (true) {
+            $exists = Belajar::where('id_user', $idUser)
+                ->where('tanggal', $date->toDateString())
+                ->exists();
+
+            if ($exists) {
+                $streak++;
+                $date->subDay();
+            } else {
+                break;
+            }
+        }
+        // === End Win Streak ===
+
+        return view('dashboard', compact('tweet', 'user', 'todayPost', 'yesterdayPost', 'streak'));
     }
+
 
     public function profil()
     {
@@ -78,7 +115,6 @@ class AdminController extends Controller
         $post = new Belajar();
         $post->id_user = auth()->id();
         $post->topik = $request->postingan;
-
 
         $post->jam = $now->format('H:i');
         $post->tanggal = $now->format('Y-m-d');

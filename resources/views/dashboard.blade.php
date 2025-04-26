@@ -73,6 +73,20 @@
             <div class="col-md-8">
 
                 <!-- Form Posting -->
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                
+                <!-- Alert Error -->
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="card-custom p-4 mb-4">
                     <form action="{{route('posting')}}" method="post">
                     <div class="d-flex">
@@ -108,13 +122,25 @@
             <div class="col-md-4">
                 <div class="info-box">
                     <h5>Today:</h5>
-                    <p>"Belajar Bootstrap Layout"</p>
-
+                    @if ($todayPost)
+                        <p>"{{ $todayPost->topik }}"</p>
+                    @else
+                        <p>Belum ada postingan hari ini 🌧️</p>
+                    @endif
+                    
                     <h5>Yesterday:</h5>
-                    <p>"Belajar Migration & Seeding"</p>
-
+                    @if ($yesterdayPost)
+                        <p>"{{ $yesterdayPost->topik }}"</p>
+                    @else
+                        <p>Belum ada postingan kemarin 🌧️</p>
+                    @endif
+                    
                     <h5>Win Streak:</h5>
-                    <p>🔥 3 Hari berturut-turut!</p>
+                    @if ($streak >= 3)
+                        <p>🔥 {{ $streak }} Hari berturut-turut!</p>
+                    @else
+                        <p>Belum Win Streak 😔</p>
+                    @endif
                 </div>
                 <form action="{{ route('logout') }}" method="POST" class="mt-4">
                     @csrf
