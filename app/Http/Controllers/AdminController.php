@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Belajar;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +37,7 @@ class AdminController extends Controller
         if(Auth::attempt($credential)){
             $user =  Auth::user();
 
-            return redirect()->route('dashboard');
+            return redirect()->route('beranda');
         }
        //  Alert::alert('Gagal login', 'Username atau Password anda salah', 'error');
         return redirect()->route('login')->with('login_error', 'Email atau Password salah, Silahkan coba lagi')
@@ -49,12 +52,29 @@ class AdminController extends Controller
 
     public function beranda()
     {
-        return view('dashboard');
+        $tweet=Belajar::all();
+        $user=User::all();
+        return view('dashboard',compact('tweet','user'));
     }
 
     public function profil()
     {
         return view('profil');
+    }
+
+    public function posting(Request $request){
+        $request->validate([
+            'postingan' => 'required',
+        ]);
+
+        $post = new Belajar();
+        $post->id_user = auth()->id(); 
+        $post->topik = $request->postingan;
+        $post->jam = Carbon::now()->format('H:i'); 
+        $post->tanggal = Carbon::now()->format('Y-m-d'); 
+        $post->save(); 
+
+        return back()->with('success', 'Postingan berhasil dikirim!');
     }
     
     
