@@ -38,8 +38,11 @@ class AdminController extends Controller
         return redirect()->route('login')->with('login_error', 'Email atau Password salah, Silahkan coba lagi')
             ->withInput();
      }
-     
-
+     public function logout(Request $request){
+        $request->session()->flush();
+        Auth::logout();
+        return Redirect()->route('login');
+      }
 
     public function register()
     {
