@@ -39,6 +39,14 @@
             border-radius: 10px;
             transition: 0.3s;
         }
+        .btn-hapus {
+            background: linear-gradient(135deg, #ba0808, #062029);
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
 
         .btn-post:hover {
             opacity: 0.9;
@@ -71,6 +79,10 @@
 }
 
 .btn-profil:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+.btn-hapus:hover {
     opacity: 0.9;
     transform: scale(1.05);
 }
@@ -163,7 +175,7 @@
                 <a href="{{route('profil')}}" class="btn btn-profil w-100 mt-4">Profil</a>
                 <form action="{{ route('logout') }}" method="POST" class="mt-4">
                     @csrf
-                    <button type="submit" class="btn btn-post w-100">Logout 🚪</button>
+                    <button type="submit" class="btn btn-hapus w-100">Logout 🚪</button>
                 </form>
             </div>
 
