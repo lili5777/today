@@ -10,7 +10,13 @@
 </head>
 
 <body>
-    <h1>profil</h1>
+    <div class="card rounded-circle" style="width: 18rem; height: 18rem; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <div class="card-body p-0 bg-secondary" style="width: 100%; height: 100%;">
+          <img src="fotokuu" alt="Foto Profil" style="width: 100%; height: 100%;">
+        </div>
+      </div>
+      
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
