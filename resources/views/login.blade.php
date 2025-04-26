@@ -32,7 +32,7 @@
                                         <h1 class="h4" style="color: #0505ed; font-weight: bold;">Today</h1>
                                     </div>
 
-                                    <form action="" method="POST">
+                                    <form action="{{ route('proses_login') }}" method="POST">
                                         @csrf
                                         <div class="form-group mb-3">
                                             <label for="email">Email</label>
