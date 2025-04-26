@@ -28,9 +28,8 @@
                             <div class="col-lg-6 d-flex align-items-center">
                                 <div class="p-5 w-100">
                                     <div class="d-flex align-items-center mb-4">
-                                        <img src="{{ asset('img/logo.png') }}" alt="Logo"
-                                            style="width: 60px; height: 60px; margin-right: 10px;">
-                                        <h1 class="h4" style="color: #a195c7; font-weight: bold;">ABSENSI</h1>
+                                        
+                                        <h1 class="h4" style="color: #0505ed; font-weight: bold;">Today</h1>
                                     </div>
 
                                     <form action="" method="POST">
@@ -39,7 +38,7 @@
                                             <label for="email">Email</label>
                                             <input class="form-control" type="text" name="email"
                                                 value="{{ old('email') }}" placeholder="Email"
-                                                style="background-color: #D8BFD8; border: 1px solid #f7f7f8;">
+                                                style="background-color: #bac0e1; border: 1px solid #f7f7f8;">
                                             @error('email')
                                                 <div class="text-danger mt-1">{{ $message }}</div>
                                             @enderror
@@ -48,14 +47,14 @@
                                             <label for="password">Password</label>
                                             <input class="form-control" type="password" name="password"
                                                 placeholder="Password"
-                                                style="background-color: #D8BFD8; border: 1px solid #f7f7f8;">
+                                                style="background-color: #bac0e1; border: 1px solid #f7f7f8;">
                                             @error('password')
                                                 <div class="text-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn w-100"
-                                                style="background-color: #a195c7; border-color: #DFCDE1; border-radius: 15px; padding: 10px; color: white;">
+                                                style="background-color: #3c00ff;  border-radius: 15px; padding: 10px; color: white;">
                                                 Sign In
                                             </button>
                                         </div>
@@ -65,8 +64,7 @@
 
                             <!-- GAMBAR SAMPING -->
                             <div class="col-lg-6 d-none d-lg-block">
-                                <img src="{{ asset('img/login-side-image.png') }}" alt="Login Side Image"
-                                    class="login-image">
+                                <img src="{{ asset('img/Logo.png') }}"  class="login-image">
                             </div>
 
                         </div>
@@ -78,4 +76,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
