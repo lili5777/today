@@ -74,10 +74,16 @@
 
                 <!-- Form Posting -->
                 <div class="card-custom p-4 mb-4">
+                    <form action="{{route('posting')}}" method="post">
                     <div class="d-flex">
-                        <input type="text" class="form-control me-3" placeholder="Belajar apa hari ini? ✨">
-                        <button class="btn btn-post">Post</button>
+                        
+                            @csrf
+                            <input type="text" class="form-control me-3" placeholder="Belajar apa hari ini? ✨" name="postingan">
+                            <button type="submit" class="btn btn-post">Post</button>
+                        
+                        
                     </div>
+                    </form>
                 </div>
 
                 <!-- Postingan List -->

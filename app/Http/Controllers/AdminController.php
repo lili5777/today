@@ -52,7 +52,7 @@ class AdminController extends Controller
 
     public function beranda()
     {
-        $tweet=Belajar::all();
+        $tweet = Belajar::orderBy('created_at', 'desc')->get();
         $user=User::all();
         return view('dashboard',compact('tweet','user'));
     }
@@ -66,13 +66,24 @@ class AdminController extends Controller
         $request->validate([
             'postingan' => 'required',
         ]);
+        $now = Carbon::now('Asia/Makassar');
+
+        $cek = Belajar::where('id_user', auth()->id())
+            ->whereDate('tanggal', $now->format('Y-m-d'))
+            ->first();
+
+        if ($cek) {
+            return back()->with('error', 'Kamu sudah posting hari ini. Tunggu besok ya! 🌟');
+        }
 
         $post = new Belajar();
-        $post->id_user = auth()->id(); 
+        $post->id_user = auth()->id();
         $post->topik = $request->postingan;
-        $post->jam = Carbon::now()->format('H:i'); 
-        $post->tanggal = Carbon::now()->format('Y-m-d'); 
-        $post->save(); 
+
+
+        $post->jam = $now->format('H:i');
+        $post->tanggal = $now->format('Y-m-d');
+        $post->save();
 
         return back()->with('success', 'Postingan berhasil dikirim!');
     }
