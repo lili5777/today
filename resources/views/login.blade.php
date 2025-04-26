@@ -28,7 +28,7 @@
                             <div class="col-lg-6 d-flex align-items-center">
                                 <div class="p-5 w-100">
                                     <div class="d-flex align-items-center mb-4">
-                                        
+
                                         <h1 class="h4" style="color: #0505ed; font-weight: bold;">Today</h1>
                                     </div>
 
@@ -55,8 +55,12 @@
                                         <div class="text-center">
                                             <button type="submit" class="btn w-100"
                                                 style="background-color: #3c00ff;  border-radius: 15px; padding: 10px; color: white;">
-                                                Sign In
+                                                login
                                             </button>
+                                        </div>
+                                        <div>
+                                            <p style="text-align: center; margin-top: 10px;">dont have account? <a
+                                                    href="">register</a></p>
                                         </div>
                                     </form>
                                 </div>
@@ -64,7 +68,7 @@
 
                             <!-- GAMBAR SAMPING -->
                             <div class="col-lg-6 d-none d-lg-block">
-                                <img src="{{ asset('img/Logo.png') }}"  class="login-image">
+                                <img src="{{ asset('img/Logo.png') }}" class="login-image">
                             </div>
 
                         </div>
