@@ -79,6 +79,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+    @if(session('login_error'))
+    <script>
+        Swal.fire({
+            title: 'Oopss..',
+            icon: 'error',
+            text: '{{ session("login_error") }}'
+        });
+    </script>
+    @endif
 </body>
 
 </html>
