@@ -10,9 +10,14 @@
 </head>
 
 <body>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="mb-4 mt-3" style="color:#4d65ee;">Profil</h2>
+      </div>
+      <hr style="height: 2px; color:#06040e;">
     <div class="card rounded-circle" style="width: 18rem; height: 18rem; overflow: hidden; display: flex; align-items: center; justify-content: center;">
         <div class="card-body p-0 bg-secondary" style="width: 100%; height: 100%;">
-          <img src="fotokuu" alt="Foto Profil" style="width: 100%; height: 100%;">
+          <img src="{{ asset('img/download.jpeg') }}" alt="Foto Profil" style="width: 100%; height: 100%;">
         </div>
       </div>
       
