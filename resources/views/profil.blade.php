@@ -85,12 +85,8 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body profile-info">
-                    <h5 class="card-title">Alfian Syarif</h5>
-                    <p class="card-text mb-2">Username: Alfinaabun</p>
-                    <p class="card-text mb-2">Nomor Telepon: 0892111</p>
-                    <p class="card-text mb-2">Email: RtMw8@example.com</p>
-                    <p class="card-text mb-2">Email: RtMw8@example.com</p>
-                    <p class="card-text mb-2">Email: RtMw8@example.com</p>
+                    <h5 class="card-title">{{$user->name}}</h5>
+                    <p class="card-text mb-2">{{$user->email}}</p>
                 </div>
             </div>
         </div>
@@ -100,17 +96,14 @@
     <p class="activity"
         style="margin-top: 20px; margin-bottom: -20px; margin-left: 390px; font-weight: bold; font-size: 20px;">Activity
     </p>
-    <div class="activity-card">
-        <h4 class="mb-2">Belajar React JS</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div class="status-badge">Public</div>
-    </div>
-    <!-- Activity Card -->
-    <div class="activity-card">
-        <h4 class="mb-2">Belajar React JS</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div class="status-badge">Public</div>
-    </div>
+    @foreach ($belajar as $a)
+        <div class="activity-card">
+            <h4 class="mb-2">{{$a->topik}}</h4>
+            <p>{{$a->jam}} {{$a->tanggal}}</p>
+            <div class="status-badge">Public</div>
+        </div>
+    @endforeach
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">

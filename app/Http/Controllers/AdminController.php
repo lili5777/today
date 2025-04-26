@@ -104,7 +104,9 @@ class AdminController extends Controller
 
     public function profil()
     {
-        return view('profil');
+        $user = auth()->user();
+        $belajar = Belajar::where('id', auth()->id())->get(); // Tambahkan tanda kurung di auth()->id()
+        return view('profil', compact('user', 'belajar'));
     }
 
     public function posting(Request $request){
