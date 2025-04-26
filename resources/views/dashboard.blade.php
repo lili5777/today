@@ -57,6 +57,24 @@
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
         }
+        .btn-profil {
+    background: linear-gradient(135deg, #6c63ff, #48c6ef);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    /* padding: 10px; */
+    transition: 0.3s;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-profil:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
 
         .info-box p {
             margin-bottom: 1rem;
@@ -142,6 +160,7 @@
                         <p>Belum Win Streak 😔</p>
                     @endif
                 </div>
+                <a href="{{route('profil')}}" class="btn btn-profil w-100 mt-4">Profil</a>
                 <form action="{{ route('logout') }}" method="POST" class="mt-4">
                     @csrf
                     <button type="submit" class="btn btn-post w-100">Logout 🚪</button>
