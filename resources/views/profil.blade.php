@@ -10,18 +10,19 @@
 </head>
 
 <body>
-
     <div class="d-flex justify-content-between align-items-center">
-        <h2 class="mb-4 mt-3" style="color:#4d65ee;">Profil</h2>
+        <h2 class="mb-4 mt-3" style="color: #4d65ee;">Profil</h2>
       </div>
-      <hr style="height: 2px; color:#06040e;">
-    <div class="card rounded-circle" style="width: 18rem; height: 18rem; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+      
+      <hr style="height: 2px; background-color: #06040e; border: none;">
+      
+      <div class="card rounded-circle" style="width: 18rem; height: 18rem;">
         <div class="card-body p-0 bg-secondary" style="width: 100%; height: 100%;">
-          <img src="{{ asset('img/download.jpeg') }}" alt="Foto Profil" style="width: 100%; height: 100%;">
+          <img src="{{ asset('img/download.jpeg') }}" alt="Foto Profil" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
       </div>
       
-
+      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
