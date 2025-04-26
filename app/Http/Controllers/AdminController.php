@@ -29,21 +29,20 @@ class AdminController extends Controller
         
         
         $credential = $request->only('email','password');
-       //  $unamenya=User::where('email', $credential['email'])->first();
-       //  dd($credential);
-       //  dd(Auth::attempt($credential));
-        
 
         if(Auth::attempt($credential)){
             $user =  Auth::user();
 
             return redirect()->route('beranda');
         }
-       //  Alert::alert('Gagal login', 'Username atau Password anda salah', 'error');
         return redirect()->route('login')->with('login_error', 'Email atau Password salah, Silahkan coba lagi')
             ->withInput();
      }
-
+     public function logout(Request $request){
+        $request->session()->flush();
+        Auth::logout();
+        return Redirect()->route('login');
+      }
 
     public function register()
     {

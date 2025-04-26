@@ -116,7 +116,7 @@
                     <h5>Win Streak:</h5>
                     <p>🔥 3 Hari berturut-turut!</p>
                 </div>
-                <form action="" method="POST" class="mt-4">
+                <form action="{{ route('logout') }}" method="POST" class="mt-4">
                     @csrf
                     <button type="submit" class="btn btn-post w-100">Logout 🚪</button>
                 </form>
