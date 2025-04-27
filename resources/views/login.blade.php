@@ -15,6 +15,7 @@
             border-bottom-right-radius: 15px;
         }
     </style>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
                                         <h1 class="h4" style="color: #0505ed; font-weight: bold;">Today</h1>
                                     </div>
 
-                                    <form action="" method="POST">
+                                    <form action="{{ route('proses_login') }}" method="POST">
                                         @csrf
                                         <div class="form-group mb-3">
                                             <label for="email">Email</label>
@@ -60,7 +61,7 @@
                                         </div>
                                         <div>
                                             <p style="text-align: center; margin-top: 10px;">dont have account? <a
-                                                    href="">register</a></p>
+                                                    href="{{ route('register') }}">register</a></p>
                                         </div>
                                     </form>
                                 </div>
@@ -79,6 +80,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+    @if(session('login_error'))
+    <script>
+        Swal.fire({
+            title: 'Oopss..',
+            icon: 'error',
+            text: '{{ session("login_error") }}'
+        });
+    </script>
+    @endif
 </body>
 
 </html>
