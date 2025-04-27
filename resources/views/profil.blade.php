@@ -85,8 +85,10 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body profile-info">
-                    <h5 class="card-title">{{$user->name}}</h5>
-                    <p class="card-text mb-2">{{$user->email}}</p>
+                    <h5 class="card-title">{{ $user->name }}</h5>
+                    <p class="card-text mb-2">{{ $user->email }}</p>
+                    <p>Belajar bukan tentang menjadi yang terbaik, tapi menjadi lebih baik dari diri sendiri kemarin.
+                    </p>
                 </div>
             </div>
         </div>
@@ -98,12 +100,12 @@
     </p>
     @foreach ($belajar as $a)
         <div class="activity-card">
-            <h4 class="mb-2">{{$a->topik}}</h4>
-            <p>{{$a->jam}} {{$a->tanggal}}</p>
+            <h4 class="mb-2">{{ $a->topik }}</h4>
+            <p>{{ $a->jam }} {{ $a->tanggal }}</p>
             <div class="status-badge">Public</div>
         </div>
     @endforeach
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
